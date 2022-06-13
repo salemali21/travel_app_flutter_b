@@ -238,7 +238,7 @@ class _buildDetails extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              CustomText(text: model.overview!, textAlign: TextAlign.start),
+              CustomText(text: model.overview!, textAlign: TextAlign.start, maxLines: 20),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -3,6 +3,9 @@ enum FieldType {
   email,
   password,
   confirmPassword,
+  cardNumber,
+  cardHolder,
+  CVC,
 }
 
 enum CounterType {

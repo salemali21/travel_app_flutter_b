@@ -18,6 +18,7 @@ class CustomField extends StatelessWidget {
     this.onTap,
     this.prefixIcon,
     this.onChanged,
+    this.keyboardType,
   }) : super(key: key);
   final String hint;
   final Widget? suffixIcon;
@@ -31,6 +32,7 @@ class CustomField extends StatelessWidget {
   final void Function()? onTap;
   final Widget? prefixIcon;
   final void Function(String)? onChanged;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class CustomField extends StatelessWidget {
       validator: validator,
       textDirection: textDirection,
       onChanged: onChanged,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon ?? null,

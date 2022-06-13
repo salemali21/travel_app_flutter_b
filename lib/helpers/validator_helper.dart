@@ -5,7 +5,7 @@ class ValidatorHelper {
   ValidatorHelper._();
   static final instance = ValidatorHelper._();
 
-  String? validator({required String? value,required FieldType type , String? matchText}) {
+  String? validator({required String? value, required FieldType type, String? matchText}) {
     switch (type) {
       case FieldType.name:
         return _name(value);
@@ -14,7 +14,13 @@ class ValidatorHelper {
       case FieldType.password:
         return _password(value);
       case FieldType.confirmPassword:
-        return _confirmPassword(value , matchText);
+        return _confirmPassword(value, matchText);
+      case FieldType.cardNumber:
+        return _cardNumber(value);
+      case FieldType.cardHolder:
+        return _cardHolder(value);
+      case FieldType.CVC:
+        return _CVC(value);
     }
   }
 
@@ -28,7 +34,7 @@ class ValidatorHelper {
     return null;
   }
 
-  String? _email(String? value){
+  String? _email(String? value) {
     if (value == null || value.isEmpty) {
       return "empty_email".tr;
     }
@@ -37,7 +43,8 @@ class ValidatorHelper {
     }
     return null;
   }
-  String? _password(String? value){
+
+  String? _password(String? value) {
     if (value == null || value.isEmpty) {
       return "empty_password".tr;
     }
@@ -46,15 +53,49 @@ class ValidatorHelper {
     }
     return null;
   }
-  String? _confirmPassword(String? value , String? otherText){
+
+  String? _confirmPassword(String? value, String? otherText) {
     if (value == null || value.isEmpty) {
       return "empty_password".tr;
     }
     if (value.length < 6) {
       return "short_password".tr;
     }
-    if(value != otherText){
+    if (value != otherText) {
       return "not_match_password".tr;
+    }
+    return null;
+  }
+
+  String? _cardNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return "empty_card_number".tr;
+    }
+    if (value.length < 4) {
+      return "short_card_number".tr;
+    }
+    if(int.tryParse(value) == null){
+      return "enter_valid_number".tr;
+    }
+    return null;
+  }
+
+  String? _cardHolder(String? value) {
+    if (value == null || value.isEmpty) {
+      return "empty_card_holder".tr;
+    }
+    if (value.length < 4) {
+      return "short_card_holder".tr;
+    }
+    return null;
+  }
+
+  String? _CVC(String? value) {
+    if (value == null || value.isEmpty) {
+      return "empty_CVC".tr;
+    }
+    if (value.length < 4) {
+      return "short_CVC".tr;
     }
     return null;
   }
