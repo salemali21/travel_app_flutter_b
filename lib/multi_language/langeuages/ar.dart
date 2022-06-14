@@ -89,4 +89,9 @@ Map<String, String> ar = {
   "Add a new card": "اضافة بطاقة جديدة",
   "Help": "المساعدة",
   "Logout": "تسجيل الخروج",
+  "Edit Account": "تعديل الحساب",
+  "Name": "الاسم",
+  "Location": "الموقع",
+  "Address": "العنوان",
+  "Phone Number": "رقم الهاتف",
 };

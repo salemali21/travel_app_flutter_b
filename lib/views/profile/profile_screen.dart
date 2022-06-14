@@ -7,7 +7,7 @@ import 'package:travel_app/controllers/profile/profile_controller.dart';
 import 'package:travel_app/helpers/constants.dart';
 import 'package:travel_app/helpers/main_user.dart';
 import 'package:travel_app/views/profile/add_card_screen.dart';
-import 'package:travel_app/views/profile/edit_profile.dart';
+import 'package:travel_app/views/profile/edit_account_screen.dart';
 
 class ProfileScreen extends GetWidget<ProfileController> {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -21,10 +21,13 @@ class ProfileScreen extends GetWidget<ProfileController> {
       child: Column(
         children: [
           SizedBox(height: 30),
-          BuildImage(
-            image: MainUser.instance.model!.image!,
-            width: 120,
-            height: 120,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(60),
+            child: BuildImage(
+              image: MainUser.instance.model!.image!,
+              width: 120,
+              height: 120,
+            ),
           ),
           SizedBox(height: 10),
           CustomText(
@@ -37,7 +40,7 @@ class ProfileScreen extends GetWidget<ProfileController> {
             title: "Edit account".tr,
             leadingIcon: Icons.settings,
             sufixIcon: Icons.arrow_forward_ios,
-            onTap: () => Get.to(() => EditProfile()),
+            onTap: () => Get.to(() => EditAccountScreen()),
           ),
           SizedBox(height: 25),
           _BuildItem(
@@ -65,7 +68,9 @@ class ProfileScreen extends GetWidget<ProfileController> {
             title: "Logout".tr,
             leadingIcon: Icons.logout,
             // sufixIcon: Icons.arrow_forward_ios,
-            onTap: () {},
+            onTap: () {
+              controller.logut();
+            },
           ),
         ],
       ),

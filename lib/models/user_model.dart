@@ -17,13 +17,13 @@ class UserModel {
   });
 
   UserModel.fromJson(Map<String, dynamic> data) {
-    this.uId = data["uId"];
-    this.name = data["name"];
-    this.email = data["email"];
-    this.image = data["image"];
-    this.location = data["location"];
-    this.address = data["address"];
-    this.phoneNumber = data["phoneNumber"];
+    this.uId = data["uId"] ?? "uId";
+    this.name = data["name"] ?? "name";
+    this.email = data["email"] ?? "email";
+    this.image = data["image"] ?? "https://st2.depositphotos.com/1104517/11965/v/950/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg";
+    this.location = data["location"] ?? "";
+    this.address = data["address"] ?? "";
+    this.phoneNumber = data["phoneNumber"] ?? 0;
   }
 
   Map<String, dynamic> get toMap {

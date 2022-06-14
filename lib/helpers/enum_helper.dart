@@ -6,6 +6,7 @@ enum FieldType {
   cardNumber,
   cardHolder,
   CVC,
+  phoneNumber,
 }
 
 enum CounterType {

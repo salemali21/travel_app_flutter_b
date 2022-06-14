@@ -21,6 +21,8 @@ class ValidatorHelper {
         return _cardHolder(value);
       case FieldType.CVC:
         return _CVC(value);
+      case FieldType.phoneNumber:
+        return _phoneNumber(value);
     }
   }
 
@@ -74,7 +76,7 @@ class ValidatorHelper {
     if (value.length < 4) {
       return "short_card_number".tr;
     }
-    if(int.tryParse(value) == null){
+    if (int.tryParse(value) == null) {
       return "enter_valid_number".tr;
     }
     return null;
@@ -96,6 +98,19 @@ class ValidatorHelper {
     }
     if (value.length < 4) {
       return "short_CVC".tr;
+    }
+    return null;
+  }
+
+  String? _phoneNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return null;
+    }
+    if (value.length < 4) {
+      return "short_card_number".tr;
+    }
+    if (int.tryParse(value) == null) {
+      return "enter_valid_number".tr;
     }
     return null;
   }

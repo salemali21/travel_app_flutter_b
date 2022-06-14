@@ -19,6 +19,7 @@ class CustomField extends StatelessWidget {
     this.prefixIcon,
     this.onChanged,
     this.keyboardType,
+    this.initialValue,
   }) : super(key: key);
   final String hint;
   final Widget? suffixIcon;
@@ -33,10 +34,12 @@ class CustomField extends StatelessWidget {
   final Widget? prefixIcon;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
       onTap: onTap,
       enabled: enabled,
       obscureText: obscureText,

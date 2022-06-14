@@ -36,6 +36,7 @@ class HomeScreen extends GetWidget<HomeController> {
                   width: Get.width * 0.5,
                   child: CustomText(
                     text: "where_Do_you_want_go".tr,
+                    maxLines: 3,
                     fontSize: 28,
                     textAlign: TextAlign.start,
                     fontWeight: FontWeight.w500,

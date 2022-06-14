@@ -14,4 +14,8 @@ class CatchStorage {
   static Future<void> clear() async {
     await _box.erase();
   }
+
+  static Future<void> remove(String key) async {
+    await _box.remove(key);
+  }
 }

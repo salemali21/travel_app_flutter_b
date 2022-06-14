@@ -88,4 +88,10 @@ Map<String, String> en = {
   "Add a new card": "Add a new card",
   "Help": "Help",
   "Logout": "Logout",
+  "Edit Account": "Edit Account",
+  "Change Profile Picture": "Change Profile Picture",
+  "Name": "Name",
+  "Location": "Location",
+  "Address": "Address",
+  "Phone Number": "Phone Number",
 };
