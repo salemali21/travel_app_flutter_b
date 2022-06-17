@@ -20,10 +20,10 @@ class UserModel {
     this.uId = data["uId"] ?? "uId";
     this.name = data["name"] ?? "name";
     this.email = data["email"] ?? "email";
-    this.image = data["image"] ?? "https://st2.depositphotos.com/1104517/11965/v/950/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg";
+    this.image = data["image"] ?? "https://firebasestorage.googleapis.com/v0/b/travel-app-53dd0.appspot.com/o/defult_image%2Ficon-g28577778e_640.png?alt=media&token=aa5cbd3e-fa03-4344-a0fa-129e58c8ed67";
     this.location = data["location"] ?? "";
     this.address = data["address"] ?? "";
-    this.phoneNumber = data["phoneNumber"] ?? 0;
+    this.phoneNumber = data["phoneNumber"];
   }
 
   Map<String, dynamic> get toMap {

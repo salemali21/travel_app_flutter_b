@@ -79,6 +79,7 @@ Map<String, String> en = {
   "empty_CVC": "Please enter CVC",
   "short_CVC": "CVC is too short",
   "Save": "Save",
+  "Save Changes": "Save Changes",
   "enter_valid_number": "Please enter valid number",
   "Something is wrong": "Something is wrong!",
   "Mark as default card": "Mark as default card",
@@ -94,4 +95,7 @@ Map<String, String> en = {
   "Location": "Location",
   "Address": "Address",
   "Phone Number": "Phone Number",
+  "Choosing picture from :": "Choosing picture from :",
+  "Gallery": "Gallery",
+  "Camera": "Camera",
 };

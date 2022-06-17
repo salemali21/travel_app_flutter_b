@@ -21,19 +21,27 @@ class ProfileScreen extends GetWidget<ProfileController> {
       child: Column(
         children: [
           SizedBox(height: 30),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(60),
-            child: BuildImage(
-              image: MainUser.instance.model!.image!,
-              width: 120,
-              height: 120,
-            ),
+          GetBuilder<ProfileController>(
+            builder: (_) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                child: BuildImage(
+                  image: MainUser.instance.model!.image!,
+                  width: 120,
+                  height: 120,
+                ),
+              );
+            },
           ),
           SizedBox(height: 10),
-          CustomText(
-            text: MainUser.instance.model!.name!,
-            fontWeight: FontWeight.bold,
-            fontSize: 26,
+          GetBuilder<ProfileController>(
+            builder: (_) {
+              return CustomText(
+                text: MainUser.instance.model!.name!,
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+              );
+            },
           ),
           SizedBox(height: 30),
           _BuildItem(

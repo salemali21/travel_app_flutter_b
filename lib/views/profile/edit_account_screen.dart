@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:travel_app/components/build_image.dart';
 import 'package:travel_app/components/custom_button.dart';
 import 'package:travel_app/components/custom_field.dart';
@@ -41,17 +42,57 @@ class EditAccountScreen extends GetWidget<EditAccountController> {
                   alignment: Alignment.center,
                   child: Column(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(60),
-                        child: BuildImage(
-                          image: MainUser.instance.model!.image!,
-                          width: 120,
-                          height: 120,
+                      GetBuilder<EditAccountController>(builder: (_) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(60),
+                          child: BuildImage(
+                            image: controller.image != null
+                                ? controller.image!.path
+                                : MainUser.instance.model!.image!,
+                            width: 120,
+                            height: 120,
+                            isNetworkImage: controller.imagePath != null ? false : true,
+                          ),
+                        );
+                      }),
+                      // Image.asset(controller.image!.path),
+                      GestureDetector(
+                        onTap: () {
+                          Get.dialog(
+                            AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              title: CustomText(
+                                text: "Choosing picture from :".tr,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  CustomButton(
+                                    text: "Gallery",
+                                    onPressed: () {
+                                      controller.pickImage(ImageSource.gallery);
+                                    },
+                                  ),
+                                  SizedBox(height: 30),
+                                  CustomButton(
+                                    text: "Camera",
+                                    onPressed: () {
+                                      controller.pickImage(ImageSource.camera);
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                        child: CustomText(
+                          text: "Change Profile Picture".tr,
+                          color: k_primaryColor,
                         ),
-                      ),
-                      CustomText(
-                        text: "Change Profile Picture".tr,
-                        color: k_primaryColor,
                       ),
                     ],
                   ),
@@ -109,10 +150,12 @@ class EditAccountScreen extends GetWidget<EditAccountController> {
                   width: Get.width,
                   alignment: Alignment.center,
                   child: CustomButton(
-                    text: "Save".tr,
-                    onPressed: () {
-                      controller.onSubmit();
-                    },
+                    text: "Save Changes".tr,
+                    onPressed: controller.isLoading
+                        ? null
+                        : () {
+                            controller.onSubmit();
+                          },
                   ),
                 ),
               ],

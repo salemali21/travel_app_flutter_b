@@ -19,6 +19,8 @@ class BuildImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(image);
+
     return Container(
       width: width,
       height: height,

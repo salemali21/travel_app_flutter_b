@@ -42,4 +42,8 @@ class FirestoreServic {
         .collection("cards")
         .add(model.toMap);
   }
+
+  Future<void> updateUser(UserModel model) async {
+    return await _db.collection("users").doc(_auth.currentUser!.uid).set(model.toMap);
+  }
 }

@@ -80,6 +80,7 @@ Map<String, String> ar = {
   "empty_CVC": "الرجاء إدخال رمز التحقق من البطاقة (CVC)",
   "short_CVC": "رمز التحقق من البطاقة (CVC) قصير جدًا",
   "Save": "حفظ",
+  "Save Changes": "حفظ التغييرات",
   "enter_valid_number": "الرجاء ارخال رقم صالح",
   "Something is wrong": "هناك خطأ!",
   "Mark as default card": "وضع علامة كبطاقة افتراضية",
@@ -94,4 +95,7 @@ Map<String, String> ar = {
   "Location": "الموقع",
   "Address": "العنوان",
   "Phone Number": "رقم الهاتف",
+  "Choosing picture from :": "اختيار الصورة من :",
+  "Gallery": "معرض الصور",
+  "Camera": "الكاميرا",
 };
