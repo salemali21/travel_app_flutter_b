@@ -13,18 +13,18 @@ const String k_userKey = "user";
 const String k_onBoardingKey = "onBoarding";
 
 const MaterialColor k_primaryColor = MaterialColor(
-  k_primeryColorValue,
+  _k_primeryColorValue,
   <int, Color>{
     50: Color(0xFF000000),
     100: Color(0xFF000000),
     200: Color(0xFF000000),
     300: Color(0xFF000000),
     400: Color(0xFF000000),
-    500: Color(k_primeryColorValue),
+    500: Color(_k_primeryColorValue),
     600: Color(0xFF000000),
     700: Color(0xFF000000),
     800: Color(0xFF000000),
     900: Color(0xFF000000),
   },
 );
-const int k_primeryColorValue = 0xFF1BBA85;
+const int _k_primeryColorValue = 0xFF1BBA85;

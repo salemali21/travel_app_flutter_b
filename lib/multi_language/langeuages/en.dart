@@ -98,4 +98,9 @@ Map<String, String> en = {
   "Choosing picture from :": "Choosing picture from :",
   "Gallery": "Gallery",
   "Camera": "Camera",
+  "Currency Converter": "Currency Converter",
+  "Converter": "Converter",
+  "USD": "USD",
+  "EUR": "EUR",
+  "Continue": "Continue",
 };

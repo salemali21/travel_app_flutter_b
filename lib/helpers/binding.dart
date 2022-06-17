@@ -8,6 +8,7 @@ import 'package:travel_app/controllers/home/search_results_controller.dart';
 import 'package:travel_app/controllers/home/tour_details_controller.dart';
 import 'package:travel_app/controllers/layout/layout_controller.dart';
 import 'package:travel_app/controllers/profile/add_card_controller.dart';
+import 'package:travel_app/controllers/profile/currency_converter_controller.dart';
 import 'package:travel_app/controllers/profile/edit_account_controller.dart';
 import 'package:travel_app/controllers/profile/profile_controller.dart';
 import 'package:travel_app/controllers/splash_controller.dart';
@@ -29,5 +30,6 @@ class Binding extends Bindings {
     Get.lazyPut(() => AddCardController(), fenix: true);
     Get.lazyPut(() => ProfileController(), fenix: true);
     Get.lazyPut(() => EditAccountController(), fenix: true);
+    Get.lazyPut(() => CurrencyConverterController(), fenix: true);
   }
 }

@@ -5,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/helpers/binding.dart';
 import 'package:travel_app/helpers/constants.dart';
+import 'package:travel_app/helpers/dio_helper.dart';
 import 'package:travel_app/multi_language/langeuages/translations.dart';
 import 'package:travel_app/helpers/catch_storage.dart';
 import 'package:travel_app/views/splash/splash_screen.dart';
@@ -13,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GetStorage.init();
+  DioHelper.init();
   // await CatchStorage.clear();  // Remove this line,
   runApp(MyApp());
 }

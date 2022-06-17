@@ -98,4 +98,9 @@ Map<String, String> ar = {
   "Choosing picture from :": "اختيار الصورة من :",
   "Gallery": "معرض الصور",
   "Camera": "الكاميرا",
+  "Currency Converter": "محول العملات",
+  "Converter": "المحول",
+  "USD": "USD",
+  "EUR": "EUR",
+  "Continue": "استمرار",
 };
