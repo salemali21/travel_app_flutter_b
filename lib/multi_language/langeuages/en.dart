@@ -103,4 +103,9 @@ Map<String, String> en = {
   "USD": "USD",
   "EUR": "EUR",
   "Continue": "Continue",
+  "Enter amount": "Enter amount",
+  "Convert": "Convert",
+  "Please enter an amount": "Please enter an amount",
+  "Please enter a valid amount": "Please enter a valid amount",
+  "The result :": "The result :",
 };

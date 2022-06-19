@@ -103,4 +103,9 @@ Map<String, String> ar = {
   "USD": "USD",
   "EUR": "EUR",
   "Continue": "استمرار",
+  "Enter amount": "أدخل المبلغ",
+  "Convert": "تحويل",
+  "Please enter an amount": "الرجاء إدخال مبلغ",
+  "Please enter a valid amount": "يرجى إدخال مبلغ صالح",
+  "The result :": "الناتج :",
 };

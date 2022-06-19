@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:travel_app/components/build_image.dart';
 import 'package:travel_app/components/custom_button.dart';
+import 'package:travel_app/components/custom_field.dart';
 import 'package:travel_app/components/custom_text.dart';
 import 'package:travel_app/controllers/profile/currency_converter_controller.dart';
 import 'package:travel_app/helpers/constants.dart';
@@ -84,20 +85,63 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 80),
-                        Container(
-                          width: Get.width,
-                          height: 63,
-                          child: CustomButton(
-                            text: "Continue".tr,
-                            onPressed: () {},
+                        SizedBox(height: 40),
+                        Form(
+                          key: controller.formKey,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: CustomField(
+                                  hint: "Enter amount".tr,
+                                  keyboardType: TextInputType.number,
+                                  controller: controller.amount,
+                                  validator: (String? value) {
+                                    if (value == null || value.isEmpty)
+                                      return "Please enter an amount".tr;
+                                    int? parseValue = int.tryParse(value.toString());
+                                    print(parseValue);
+                                    if (parseValue == null) return "Please enter a valid amount".tr;
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 30),
+                              Expanded(
+                                child: CustomButton(
+                                  text: "Convert".tr,
+                                  onPressed: () {
+                                    controller.convertAmount();
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            CustomText(text: "The result :".tr),
+                            SizedBox(width: 10),
+                            CustomText(text: "${controller.result}"),
+                          ],
+                        )
                       ],
                     ),
                   ),
                 );
         },
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        margin: EdgeInsets.only(bottom: 15),
+        width: Get.width,
+        height: 63,
+        child: CustomButton(
+          text: "Continue".tr,
+          onPressed: () {},
+          radius: 0,
+        ),
       ),
     );
   }
