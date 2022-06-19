@@ -8,16 +8,26 @@ class MainUser {
   MainUser._();
   static final instance = MainUser._();
 
-  UserModel? get model {
-    return onInit;
+  bool _isInit = false;
+
+  UserModel? model;
+
+  void onInit() {
+    if (_isInit == true) return null;
+
+    update();
+    // var value = CatchStorage.get(k_userKey);
+    // if (value == null) return;
+    // var convertDataToMap = jsonDecode(value);
+    // model = UserModel.fromJson(convertDataToMap);
+
+    _isInit = true;
   }
 
-  UserModel? get onInit {
+  void update() async {
     var value = CatchStorage.get(k_userKey);
-    if (value == null) return null;
-
+    if (value == null) return;
     var convertDataToMap = jsonDecode(value);
-
-    return UserModel.fromJson(convertDataToMap);
+    model = UserModel.fromJson(convertDataToMap);
   }
 }

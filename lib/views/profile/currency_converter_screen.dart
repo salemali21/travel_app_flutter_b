@@ -44,6 +44,8 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                             BuildImage(
                               image: "assets/images/compair_arrows.png",
                               isNetworkImage: false,
+                              width: 19,
+                              height: 19,
                             ),
                             _BuildItem(
                               imagePath: "assets/images/EUR.png",

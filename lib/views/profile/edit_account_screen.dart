@@ -51,7 +51,7 @@ class EditAccountScreen extends GetWidget<EditAccountController> {
                                 : MainUser.instance.model!.image!,
                             width: 120,
                             height: 120,
-                            isNetworkImage: controller.imagePath != null ? false : true,
+                            isNetworkImage: controller.image != null ? false : true,
                           ),
                         );
                       }),

@@ -76,7 +76,7 @@ class EditAccountController extends GetxController {
 
       await CatchStorage.save(k_userKey, jsonEncode(_model.toMap));
 
-      await MainUser.instance.onInit;
+      MainUser.instance.update();
 
       Get.back();
 

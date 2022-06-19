@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/helpers/catch_storage.dart';
 import 'package:travel_app/helpers/constants.dart';
+import 'package:travel_app/helpers/main_user.dart';
 import 'package:travel_app/models/user_model.dart';
 import 'package:travel_app/network/auth_service.dart';
 import 'package:travel_app/network/firestore_service.dart';
@@ -48,6 +49,8 @@ class RegisterController extends GetxController {
       var convertDataToJson = jsonEncode(_model.toMap);
 
       await CatchStorage.save(k_userKey, convertDataToJson);
+
+      MainUser.instance.update();
 
       await Get.off(() => LayoutScreen());
 

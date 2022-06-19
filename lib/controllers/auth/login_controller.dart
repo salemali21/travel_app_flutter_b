@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/helpers/catch_storage.dart';
 import 'package:travel_app/helpers/constants.dart';
+import 'package:travel_app/helpers/main_user.dart';
 import 'package:travel_app/network/auth_service.dart';
 import 'package:travel_app/network/firestore_service.dart';
 import 'package:travel_app/views/layout/layout_screen.dart';
@@ -28,6 +29,8 @@ class LoginController extends GetxController {
       var convertDataToJson = jsonEncode(userData.data());
 
       await CatchStorage.save(k_userKey, convertDataToJson);
+
+      MainUser.instance.update();
 
       await Get.off(() => LayoutScreen());
 

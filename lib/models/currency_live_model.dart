@@ -24,7 +24,7 @@ class Quotes {
   });
 
   Quotes.fromJson(Map<String, dynamic> json) {
-    uSDEUR = double.tryParse(json['USDEUR']) ?? 0;
+    uSDEUR = double.parse(json['USDEUR'].toString());
     uSDUSD = json['USDUSD'];
   }
 }

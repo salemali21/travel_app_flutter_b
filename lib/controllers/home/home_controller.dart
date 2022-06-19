@@ -4,16 +4,23 @@ import 'package:travel_app/models/tour_model.dart';
 import 'package:travel_app/network/firestore_service.dart';
 
 class HomeController extends GetxController {
+  bool isLoading = false;
   List<String> continents = [];
   List<CategoryModel> popularCategory = [];
   int currentIndex = 0;
   List<TourModel> tours = [];
 
-  onInit() {
+  onInit() async {
     super.onInit();
-    getContinents();
-    getPopularCategory();
-    getTours();
+    isLoading = true;
+    update();
+
+    await getContinents();
+    await getPopularCategory();
+    await getTours();
+
+    isLoading = false;
+    update();
   }
 
   Future<void> getContinents() async {
