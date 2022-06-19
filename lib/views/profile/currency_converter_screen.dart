@@ -71,7 +71,7 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                                         " " +
                                         "USD".tr +
                                         " = " +
-                                        "${controller.currencyLiveModel.quotes!.uSDEUR!.toStringAsFixed(2)}" +
+                                        "${controller.currencyLiveModel.quotes!.uSDEUR!.toStringAsFixed(3)}" +
                                         " " +
                                         "EUR".tr,
                                     fontSize: 30,
