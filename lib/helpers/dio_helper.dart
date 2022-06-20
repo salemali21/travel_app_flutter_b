@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:travel_app/helpers/network_url.dart';
 
 class DioHelper {
   static Dio? _dio;
@@ -6,10 +7,10 @@ class DioHelper {
   static void init() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: "https://api.apilayer.com/",
+        baseUrl: BASE_URL,
         receiveDataWhenStatusError: true,
         headers: {
-          "apikey": "Z9T5SqhlguWS7x52MzezzL1qgrNtIcl2",
+          "apikey": API_KEY,
         },
       ),
     );

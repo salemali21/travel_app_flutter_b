@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/helpers/dio_helper.dart';
-import 'package:travel_app/helpers/end_point.dart';
+import 'package:travel_app/helpers/network_url.dart';
 import 'package:travel_app/models/currency_live_model.dart';
 import 'package:travel_app/models/currency_model.dart';
 
 class CurrencyConverterController extends GetxController {
   bool isLoading = false;
-  CurrencyModel currencyModel = CurrencyModel();
-  CurrencyLiveModel currencyLiveModel = CurrencyLiveModel();
+  CurrencyModel? currencyModel;
+  CurrencyLiveModel? currencyLiveModel;
 
   double result = 0;
 
@@ -50,7 +50,7 @@ class CurrencyConverterController extends GetxController {
       if (response.statusCode != 200) throw "Error with response";
       if (response.data["success"] == false) throw "Error with response in success state";
       currencyModel = CurrencyModel.fromJson(response.data);
-      result = currencyModel.result!;
+      result = currencyModel!.result!;
       update();
     } catch (error) {
       print("in convertAmount function");

@@ -27,109 +27,109 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
       ),
       body: GetBuilder<CurrencyConverterController>(
         builder: (controller) {
-          return controller.isLoading
-              ? Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                  child: Container(
+          if (controller.isLoading) return Center(child: CircularProgressIndicator());
+          if (controller.currencyModel == null) return Center(child: CustomText(text: "Error"));
+          return SingleChildScrollView(
+            child: Container(
+              width: Get.width,
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _BuildItem(
+                        imagePath: "assets/images/USD.png",
+                        text: "USD".tr,
+                      ),
+                      BuildImage(
+                        image: "assets/images/compair_arrows.png",
+                        isNetworkImage: false,
+                        width: 19,
+                        height: 19,
+                      ),
+                      _BuildItem(
+                        imagePath: "assets/images/EUR.png",
+                        text: "EUR".tr,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 40),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 100,
                     width: Get.width,
-                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: k_primaryColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            _BuildItem(
-                              imagePath: "assets/images/USD.png",
-                              text: "USD".tr,
-                            ),
-                            BuildImage(
-                              image: "assets/images/compair_arrows.png",
-                              isNetworkImage: false,
-                              width: 19,
-                              height: 19,
-                            ),
-                            _BuildItem(
-                              imagePath: "assets/images/EUR.png",
-                              text: "EUR".tr,
+                            CustomText(
+                              text: "${controller.currencyLiveModel!.quotes!.uSDUSD}" +
+                                  " " +
+                                  "USD".tr +
+                                  " = " +
+                                  "${controller.currencyLiveModel!.quotes!.uSDEUR!.toStringAsFixed(3)}" +
+                                  " " +
+                                  "EUR".tr,
+                              fontSize: 30,
+                              color: Colors.white,
                             ),
                           ],
                         ),
-                        SizedBox(height: 40),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 100,
-                          width: Get.width,
-                          decoration: BoxDecoration(
-                            color: k_primaryColor,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CustomText(
-                                    text: "${controller.currencyLiveModel.quotes!.uSDUSD}" +
-                                        " " +
-                                        "USD".tr +
-                                        " = " +
-                                        "${controller.currencyLiveModel.quotes!.uSDEUR!.toStringAsFixed(3)}" +
-                                        " " +
-                                        "EUR".tr,
-                                    fontSize: 30,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 40),
-                        Form(
-                          key: controller.formKey,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                flex: 2,
-                                child: CustomField(
-                                  hint: "Enter amount".tr,
-                                  keyboardType: TextInputType.number,
-                                  controller: controller.amount,
-                                  validator: (String? value) {
-                                    if (value == null || value.isEmpty)
-                                      return "Please enter an amount".tr;
-                                    int? parseValue = int.tryParse(value.toString());
-                                    print(parseValue);
-                                    if (parseValue == null) return "Please enter a valid amount".tr;
-                                    return null;
-                                  },
-                                ),
-                              ),
-                              SizedBox(width: 30),
-                              Expanded(
-                                child: CustomButton(
-                                  text: "Convert".tr,
-                                  onPressed: () {
-                                    controller.convertAmount();
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          children: [
-                            CustomText(text: "The result :".tr),
-                            SizedBox(width: 10),
-                            CustomText(text: "${controller.result}"),
-                          ],
-                        )
                       ],
                     ),
                   ),
-                );
+                  SizedBox(height: 40),
+                  Form(
+                    key: controller.formKey,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: CustomField(
+                            hint: "Enter amount".tr,
+                            keyboardType: TextInputType.number,
+                            controller: controller.amount,
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty)
+                                return "Please enter an amount".tr;
+                              int? parseValue = int.tryParse(value.toString());
+                              print(parseValue);
+                              if (parseValue == null) return "Please enter a valid amount".tr;
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 30),
+                        Expanded(
+                          child: CustomButton(
+                            text: "Convert".tr,
+                            onPressed: () {
+                              controller.convertAmount();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      CustomText(text: "The result :".tr),
+                      SizedBox(width: 10),
+                      CustomText(text: "${controller.result}"),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
         },
       ),
       bottomNavigationBar: Container(
