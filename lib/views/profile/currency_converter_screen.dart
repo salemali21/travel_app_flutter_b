@@ -70,11 +70,11 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CustomText(
-                              text: "${controller.currencyLiveModel!.quotes!.uSDUSD}" +
+                              text: "${controller.currencyModel!.conversionRates!.uSD}" +
                                   " " +
                                   "USD".tr +
                                   " = " +
-                                  "${controller.currencyLiveModel!.quotes!.uSDEUR!.toStringAsFixed(3)}" +
+                                  "${controller.currencyModel!.conversionRates!.eUR!.toStringAsFixed(3)}" +
                                   " " +
                                   "EUR".tr,
                               fontSize: 30,
@@ -123,7 +123,7 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                     children: [
                       CustomText(text: "The result :".tr),
                       SizedBox(width: 10),
-                      CustomText(text: "${controller.result}"),
+                      CustomText(text: "${controller.result}" + " " + "EUR".tr),
                     ],
                   )
                 ],
