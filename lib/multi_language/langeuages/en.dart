@@ -108,4 +108,5 @@ Map<String, String> en = {
   "Please enter an amount": "Please enter an amount",
   "Please enter a valid amount": "Please enter a valid amount",
   "The result :": "The result :",
+  "Change Language": "Change Language",
 };

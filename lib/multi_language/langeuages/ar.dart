@@ -108,4 +108,5 @@ Map<String, String> ar = {
   "Please enter an amount": "الرجاء إدخال مبلغ",
   "Please enter a valid amount": "يرجى إدخال مبلغ صالح",
   "The result :": "الناتج :",
+   "Change Language": "تغيير اللغة",
 };

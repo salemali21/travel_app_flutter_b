@@ -42,7 +42,6 @@ class HomeController extends GetxController {
     documents.data()!.forEach((key, value) {
       popularCategory.add(CategoryModel.fromJson(value));
     });
-    print(popularCategory);
   }
 
   void onChangeContinent(int newIndex) {
@@ -51,11 +50,11 @@ class HomeController extends GetxController {
   }
 
   Future<void> getTours() async {
+    tours = [];
     var querySnapshot = await FirestoreServic.instance.getTours();
     querySnapshot.docs.forEach((element) {
       tours.add(TourModel.fromJson(element.data()));
     });
-    print(tours);
     update();
   }
 }

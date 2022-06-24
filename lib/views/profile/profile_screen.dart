@@ -7,6 +7,7 @@ import 'package:travel_app/controllers/profile/profile_controller.dart';
 import 'package:travel_app/helpers/constants.dart';
 import 'package:travel_app/helpers/main_user.dart';
 import 'package:travel_app/views/profile/add_card_screen.dart';
+import 'package:travel_app/views/profile/change_language_screen.dart';
 import 'package:travel_app/views/profile/currency_converter_screen.dart';
 import 'package:travel_app/views/profile/edit_account_screen.dart';
 
@@ -58,6 +59,15 @@ class ProfileScreen extends GetWidget<ProfileController> {
               leadingIcon: Icons.add,
               sufixIcon: Icons.arrow_forward_ios,
               onTap: () => Get.to(() => AddCardScreen()),
+            ),
+            SizedBox(height: 25),
+            _BuildItem(
+              title: "Change Language".tr,
+              leadingIcon: Icons.language,
+              sufixIcon: Icons.arrow_forward_ios,
+              onTap: () {
+                Get.to(() => ChangeLanguageScreen());
+              },
             ),
             SizedBox(height: 25),
             _BuildItem(
