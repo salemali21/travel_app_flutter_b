@@ -28,7 +28,24 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
       body: GetBuilder<CurrencyConverterController>(
         builder: (controller) {
           if (controller.isLoading) return Center(child: CircularProgressIndicator());
-          if (controller.currencyModel == null) return Center(child: CustomText(text: "Error"));
+          if (controller.hasError == true)
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: "Error".tr,
+                    fontSize: 25,
+                  ),
+                  SizedBox(height: 20),
+                  CustomButton(
+                    text: "Refresh".tr,
+                    onPressed: controller.onInit,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+            );
           return SingleChildScrollView(
             child: Container(
               width: Get.width,

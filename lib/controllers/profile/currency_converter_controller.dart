@@ -5,6 +5,7 @@ import 'package:travel_app/models/currency_model.dart';
 
 class CurrencyConverterController extends GetxController {
   bool isLoading = false;
+  bool hasError = false;
   CurrencyModel? currencyModel;
   CurrencyModel? convertCurrency;
 
@@ -16,24 +17,27 @@ class CurrencyConverterController extends GetxController {
 
   onInit() async {
     super.onInit();
-    isLoading = true;
-    update();
 
     await getCurrency();
-
-    isLoading = false;
-    update();
   }
 
   Future<void> getCurrency() async {
+    isLoading = true;
+    hasError = false;
+    update();
     try {
       String url = "https://v6.exchangerate-api.com/v6/e9b844120dec00f6903453b5/latest/USD";
-      var response = await Dio().get(url);
+      var response = await Dio(BaseOptions(connectTimeout: 10 * 1000)).get(url);
       if (response.statusCode != 200) throw "Error with response";
 
       currencyModel = CurrencyModel.fromJson(response.data);
+      isLoading = false;
+      update();
     } catch (error) {
-      print("in getCurrencyLive function");
+      isLoading = false;
+      hasError = true;
+      update();
+      print("in getCurrency function");
       print(error.toString());
     }
   }
