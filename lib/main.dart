@@ -15,13 +15,27 @@ void main() async {
   await Firebase.initializeApp();
   await GetStorage.init();
   MainUser.instance.onInit();
-  // DioHelper.init(); // Remove this line
   // await CatchStorage.clear();  // Remove this line,
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  String _getLanguage() {
+    String lang = CatchStorage.get(k_langKey) ?? "en";
+    return lang;
+  }
+
+  String? _getFont() {
+    if (_getLanguage() == "en") {
+      return GoogleFonts.poppins().fontFamily;
+    }
+    if (_getLanguage() == "ar") {
+      return GoogleFonts.tajawal().fontFamily;
+    }
+    return GoogleFonts.poppins().fontFamily;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +49,10 @@ class MyApp extends StatelessWidget {
         ),
         canvasColor: k_canvas,
         primarySwatch: k_primaryColor,
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: _getFont(),
       ),
       // locale: Locale("ar"),
-      locale: Locale(CatchStorage.get(k_langKey) ?? "en"),
+      locale: Locale(_getLanguage()),
       fallbackLocale: Locale("en"),
       translations: Translation(),
       initialBinding: Binding(),

@@ -16,10 +16,6 @@ class MainUser {
     if (_isInit == true) return null;
 
     update();
-    // var value = CatchStorage.get(k_userKey);
-    // if (value == null) return;
-    // var convertDataToMap = jsonDecode(value);
-    // model = UserModel.fromJson(convertDataToMap);
 
     _isInit = true;
   }
