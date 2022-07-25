@@ -30,7 +30,7 @@ class CustomText extends StatelessWidget {
         letterSpacing: letterSpacing,
       ),
       textAlign: textAlign,
-      maxLines: maxLines,
+      maxLines: maxLines ?? 100,  // Don't change this line
       overflow: TextOverflow.ellipsis,
     );
   }
