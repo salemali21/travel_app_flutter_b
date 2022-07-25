@@ -20,7 +20,7 @@ class ChooseLanguageScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomText(
-                    text: "Choose Your Language",
+                    text: "Choose Your Language".tr,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),

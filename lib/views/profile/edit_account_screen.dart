@@ -72,14 +72,14 @@ class EditAccountScreen extends GetWidget<EditAccountController> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   CustomButton(
-                                    text: "Gallery",
+                                    text: "Gallery".tr,
                                     onPressed: () {
                                       controller.pickImage(ImageSource.gallery);
                                     },
                                   ),
                                   SizedBox(height: 30),
                                   CustomButton(
-                                    text: "Camera",
+                                    text: "Camera".tr,
                                     onPressed: () {
                                       controller.pickImage(ImageSource.camera);
                                     },

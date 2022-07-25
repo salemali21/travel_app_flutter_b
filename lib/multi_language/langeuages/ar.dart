@@ -111,4 +111,7 @@ Map<String, String> ar = {
   "Change Language": "تغيير اللغة",
   "Refresh": "اعادة تحميل",
   "Error": "حطأ",
+  "Success": "نجاح",
+  "Please check your email": "الرجاء التحقق من البريد الالكتروني",
+  "Choose Your Language": "اختر لغتك",
 };

@@ -111,4 +111,7 @@ Map<String, String> en = {
   "Change Language": "Change Language",
   "Refresh": "Refresh",
   "Error": "Error",
+  "Success": "Success",
+  "Please check your email": "Please check your email",
+  "Choose Your Language": "Choose Your Language",
 };

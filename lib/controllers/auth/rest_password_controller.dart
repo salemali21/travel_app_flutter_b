@@ -13,15 +13,15 @@ class RestPasswordController extends GetxController {
     try {
       await AuthService.instance.restPassword(email.text);
       Get.snackbar(
-        "Success",
-        "Please check your email",
+        "Success".tr,
+        "Please check your email".tr,
         backgroundColor: Colors.green,
         snackPosition: SnackPosition.BOTTOM,
         margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       );
     } on FirebaseAuthException catch (error) {
       Get.snackbar(
-        "Something is wrong!",
+        "Something is wrong!".tr,
         error.message!,
         backgroundColor: Colors.red,
         snackPosition: SnackPosition.BOTTOM,

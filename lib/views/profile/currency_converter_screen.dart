@@ -140,7 +140,7 @@ class CurrencyConverterScreen extends GetWidget<CurrencyConverterController> {
                     children: [
                       CustomText(text: "The result :".tr),
                       SizedBox(width: 10),
-                      CustomText(text: "${controller.result}" + " " + "EUR".tr),
+                      CustomText(text: "${controller.result.toStringAsFixed(2)}" + " " + "EUR".tr),
                     ],
                   )
                 ],
