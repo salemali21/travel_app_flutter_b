@@ -22,8 +22,13 @@ class SearchResultsController extends GetxController {
 
     var querySnapshot = await FirestoreServic.instance.getTours();
 
+    String? convertCityToLowerCase = city!.toLowerCase();
+
     querySnapshot.docs.forEach((element) {
-      results.add(TourModel.fromJson(element.data()));
+      String convertElementTextToLower = element.data()["title"].toString().toLowerCase();
+      if (convertElementTextToLower.contains(convertCityToLowerCase)) {
+        results.add(TourModel.fromJson(element.data()));
+      }
     });
 
     isLoading = false;
