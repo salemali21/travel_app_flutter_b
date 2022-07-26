@@ -38,5 +38,3 @@ Firebase has been used as a database for this app.
 | <img src="https://user-images.githubusercontent.com/85505451/180999854-214f7599-e8f2-42b8-b25a-04704b0fe121.png" width="400"> | <img src="https://user-images.githubusercontent.com/85505451/180999857-92ec52ab-edec-4445-93d7-df403a6ad63a.png" width="400"> |
 | <img src="https://user-images.githubusercontent.com/85505451/180999860-5d63eeef-3a75-47d7-ac3c-498795afff09.png" width="400"> | <img src="https://user-images.githubusercontent.com/85505451/181024610-4d01e46d-e00c-470c-b530-3ddf82f85196.png" width="400"> |
 
-![Screenshot_1658843969]()
-
