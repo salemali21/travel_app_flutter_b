@@ -1,4 +1,15 @@
-# travel_app
+# Travel App
+
+## ✨ Features
+Firebase has been used as a database for this app.
+- Authentication < Login, Register , Rest password >
+- Multi-languages < Arabic , English >
+- Search for trips.
+- Catch storage <Get_it>.
+- Update user data.
+- Pick an image and upload to a server.
+- Currency converter < USE to EUR >.
+
 
 ## 📸 ScreenShots
 
