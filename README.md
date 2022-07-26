@@ -1,6 +1,6 @@
 # Travel App
 
-## ✨ Features
+##  Features
 Firebase has been used as a database for this app.
 - Authentication < Login, Register , Rest password >
 - Multi-languages < Arabic , English >
@@ -11,7 +11,7 @@ Firebase has been used as a database for this app.
 - Currency converter < USE to EUR >.
 
 
-## 📸 ScreenShots
+##  ScreenShots
 
 
 | English                           | Arabic                          |
