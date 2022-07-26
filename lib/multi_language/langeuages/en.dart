@@ -112,6 +112,7 @@ Map<String, String> en = {
   "Refresh": "Refresh",
   "Error": "Error",
   "Success": "Success",
+  "Please try again another time": "Please try again another time",
   "Please check your email": "Please check your email",
   "Choose Your Language": "Choose Your Language",
 };

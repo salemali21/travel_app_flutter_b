@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:travel_app/helpers/catch_storage.dart';
 import 'package:travel_app/helpers/constants.dart';
 import 'package:travel_app/helpers/main_user.dart';
@@ -42,6 +43,7 @@ class RegisterController extends GetxController {
         uId: credential.user!.uid,
         email: credential.user!.email,
         name: name.text,
+        dateOfRegister: DateFormat("y/M/d ,H:m:s").format(DateTime.now()),
       );
 
       await FirestoreServic.instance.saveUser(_model);
@@ -63,8 +65,20 @@ class RegisterController extends GetxController {
       Get.closeAllSnackbars();
 
       Get.snackbar(
-        "Something is wrong!",
+        "Something is wrong!".tr,
         error.message!,
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      );
+    } catch (error) {
+      isLoading = false;
+      update();
+
+      Get.closeAllSnackbars();
+      Get.snackbar(
+        "Something is wrong!".tr,
+        "Please try again another time".tr,
         backgroundColor: Colors.red,
         snackPosition: SnackPosition.BOTTOM,
         margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),

@@ -114,4 +114,5 @@ Map<String, String> ar = {
   "Success": "نجاح",
   "Please check your email": "الرجاء التحقق من البريد الالكتروني",
   "Choose Your Language": "اختر لغتك",
+  "Please try again another time": "الرجاء المحاولة مرة اخرى بوقت اخر",
 };
