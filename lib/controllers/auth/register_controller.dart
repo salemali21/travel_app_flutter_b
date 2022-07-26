@@ -19,15 +19,6 @@ class RegisterController extends GetxController {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
-  @override
-  void onClose() {
-    super.onClose();
-    name.clear();
-    email.clear();
-    password.clear();
-    confirmPassword.clear();
-  }
-
   bool isLoading = false;
 
   Future<void> createAccount() async {
